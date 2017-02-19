@@ -1,0 +1,43 @@
+.Menu {
+  position: fixed;
+  float: right;
+  list-style-type: none;
+  background-color: #333;
+  color: #eee;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 0 15px 5px #000;
+  width: 260px;
+  height: 80vh;
+  padding: 0 0 10px 0;
+  margin: 0;
+  z-index: 1000;
+  right: 0;
+  top: 0;
+  opacity: 1;
+  text-align: left; }
+
+.menu-title {
+  font-size: 1.8rem;
+  line-height: 0.9;
+  margin: 0 0 10px 0;
+  padding: 10px 0 8px 15px;
+  background-color: #444;
+  border-bottom: 2px solid #888; }
+
+.menu-item {
+  display: block;
+  padding: 0 0 0 15px;
+  line-height: 3.5;
+  color: #eee;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Arsenal', sans-serif;
+  cursor: pointer; }
+
+.login-logout-btn {
+  margin: 10px 15px;
+  display: inline-block;
+  color: #2ef;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer; }

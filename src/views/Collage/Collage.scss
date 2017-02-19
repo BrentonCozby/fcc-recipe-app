@@ -1,0 +1,14 @@
+.Collage {
+    column-count: 1;
+    column-gap: 20px;
+
+    @media all and (min-width: 414px) {
+        column-count: 2
+    }
+    @media all and (min-width: 768px) {
+        column-count: 3
+    }
+    @media all and (min-width: 992px) {
+        column-count: 4
+    }
+}

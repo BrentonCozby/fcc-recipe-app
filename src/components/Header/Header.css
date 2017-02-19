@@ -1,0 +1,17 @@
+.Header {
+  background-color: #fff;
+  text-align: center; }
+  .Header-title {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px; }
+
+.add-recipe-btn {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 3rem;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  cursor: pointer; }

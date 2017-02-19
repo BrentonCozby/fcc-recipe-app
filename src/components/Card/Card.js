@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import urlencode from 'urlencode'
 
 import './Card.css'
 
@@ -11,7 +12,7 @@ const Card = ({
     recipe_id
 }) => (
     <Link
-        to={`/${user_id}/recipes/${recipe_id}`}
+        to={`/${user_id}/recipes/${urlencode(title.replace(/\s+/g, '-'))}`}
         key={recipe_id}
         className="Card">
             <h3 className="Card-title">{title}</h3>
@@ -24,7 +25,7 @@ Card.propTypes = {
     title: React.PropTypes.string.isRequired,
     summary: React.PropTypes.string.isRequired,
     image: React.PropTypes.string,
-    recipe_id: React.PropTypes.string.isRequired
+    recipe_id: React.PropTypes.number.isRequired
 }
 
 export default Card

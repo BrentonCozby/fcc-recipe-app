@@ -15,7 +15,7 @@ const Collage = ({
                 title={recipe.title}
                 summary={recipe.summary}
                 image={recipe.image || null}
-                recipe_id={recipe.id}
+                recipe_id={+recipe.id}
                 key={recipe.id}
             />
         ))}

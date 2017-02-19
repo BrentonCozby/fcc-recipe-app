@@ -4,8 +4,33 @@ import './Recipe.css'
 
 class Recipe extends Component {
 
+    static propTypes = {
+        title: React.PropTypes.string.isRequired,
+        summary: React.PropTypes.string.isRequired,
+        image: React.PropTypes.string,
+        ingredients: React.PropTypes.array,
+        directions: React.PropTypes.array,
+        recipe_id: React.PropTypes.number.isRequired,
+        isLoggedIn: React.PropTypes.bool.isRequired
+    }
+
     updateRecipe = (event) => {
         this.props.updateRecipe(event)
+    }
+
+    onDrag = (e) => {
+        e.stopPropagation()
+        e.preventDefault()
+    }
+
+    onDrop = (event) => {
+        event.stopPropagation()
+        event.preventDefault()
+
+        var dt = event.dataTransfer;
+        var file = dt.files[0];
+
+        this.props.uploadImage(event, file)
     }
 
     render() {
@@ -14,7 +39,7 @@ class Recipe extends Component {
                 <div className="title-image-summary">
                     <h2
                         className="Recipe-title Recipe-input"
-                        contentEditable="true"
+                        contentEditable={this.props.isLoggedIn}
                         data-recipe_id={this.props.recipe_id}
                         data-name="title"
                         onBlur={this.updateRecipe}>
@@ -25,11 +50,33 @@ class Recipe extends Component {
                             className="Recipe-image"
                             src={this.props.image}
                             alt={this.props.title}/>
-                        : null
+                        : <div>
+                            <label
+                                className="image-dropbox"
+                                htmlFor="image-upload"
+                                data-recipe_id={this.props.recipe_id}
+                                onDragEnter={this.onDrag}
+                                onDragLeave={this.onDrag}
+                                onDragEnd={this.onDrag}
+                                onDragOver={this.onDrag}
+                                onDrop={this.onDrop}>
+                                Upload Image
+                            </label>
+                            <input
+                                className="image-upload"
+                                id="image-upload"
+                                type="file"
+                                accept="image/*"
+                                data-recipe_id={this.props.recipe_id}
+                                data-name="title"
+                                style={{display: 'none'}}
+                                onChange={this.props.uploadImage}
+                            />
+                        </div>
                     }
                     <p
                         className="Recipe-summary Recipe-input"
-                        contentEditable="true"
+                        contentEditable={this.props.isLoggedIn}
                         data-recipe_id={this.props.recipe_id}
                         data-name="summary"
                         onBlur={this.updateRecipe}>
@@ -42,7 +89,7 @@ class Recipe extends Component {
                         {this.props.ingredients && this.props.ingredients.map((item, i) => (
                             <li
                                 key={i}
-                                contentEditable="true"
+                                contentEditable={this.props.isLoggedIn}
                                 data-recipe_id={this.props.recipe_id}
                                 data-index={i}
                                 data-name="ingredients"
@@ -58,7 +105,7 @@ class Recipe extends Component {
                         {this.props.directions && this.props.directions.map((step, i) => (
                             <li
                                 key={i}
-                                contentEditable="true"
+                                contentEditable={this.props.isLoggedIn}
                                 data-recipe_id={this.props.recipe_id}
                                 data-index={i}
                                 data-name="directions"
@@ -71,15 +118,6 @@ class Recipe extends Component {
             </div>
         )
     }
-}
-
-Recipe.propTypes = {
-    title: React.PropTypes.string.isRequired,
-    summary: React.PropTypes.string.isRequired,
-    image: React.PropTypes.string,
-    ingredients: React.PropTypes.array,
-    directions: React.PropTypes.array,
-    recipe_id: React.PropTypes.string.isRequired
 }
 
 export default Recipe

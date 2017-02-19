@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import urlencode from 'urlencode'
 
 // Components
 import Header from '../Header/Header.js'
@@ -34,7 +35,8 @@ class App extends Component {
         login: React.PropTypes.func.isRequired,
         logout: React.PropTypes.func.isRequired,
         createNewRecipe: React.PropTypes.func.isRequired,
-        updateRecipe: React.PropTypes.func.isRequired
+        updateRecipe: React.PropTypes.func.isRequired,
+        uploadImage: React.PropTypes.func.isRequired
     }
 
     toggleMenu = () => {
@@ -61,6 +63,7 @@ class App extends Component {
                     title={"Recipe App"}
                     displayName={this.props.displayName}
                     createNewRecipe={this.props.createNewRecipe}
+                    isLoggedIn={this.props.isLoggedIn}
                 />
 
                 <MenuButton toggleMenu={this.toggleMenu} isMenuOpen={this.state.isMenuOpen} />
@@ -105,20 +108,26 @@ class App extends Component {
                                 recipes={this.props.recipes}
                             />
                         }}/>
-                        <Route path="/:user_id/recipes/:recipe_id" render={({ match }) => {
+                        <Route path="/:user_id/recipes/:recipe_title" render={({ match }) => {
+                            // when :recipe_title doesn't match a recipe title
                             if(!this.props.recipes.some(r => {
-                                return r.id.toLowerCase() === match.params.recipe_id.toLowerCase()
+                                return urlencode(r.title.replace(/\s+/g, '-')) === match.params.recipe_title
                             })) return <Redirect to="/demo/recipes"/>
+                            // when user is not logged in but path has a user_id
                             if(this.props.user_id !== match.params.user_id && this.props.user_id === 'demo') return (
-                                <Redirect to={`/demo/recipes/${match.params.recipe_id}`} />
+                                <Redirect to={`/demo/recipes/${match.params.recipe_title}`} />
                             )
+                            // when user is logged in but path says 'demo'
                             if(this.props.user_id !== match.params.user_id && match.params.user_id === 'demo') return (
-                                <Redirect to={`/${this.props.user_id}/recipes/${match.params.recipe_id}`} />
+                                <Redirect to={`/${this.props.user_id}/recipes/${match.params.recipe_title}`} />
                             )
+                            // Else render the RecipePage from the :recipe_title
                             return <RecipePage
+                                isLoggedIn={this.props.isLoggedIn}
                                 updateRecipe={this.props.updateRecipe}
+                                uploadImage={this.props.uploadImage}
                                 recipe={this.props.recipes.find(r => {
-                                    return r.id.toLowerCase() === match.params.recipe_id.toLowerCase()
+                                    return urlencode(r.title.replace(/\s+/g, '-')) === match.params.recipe_title
                                 })}
                             />
                         }}/>

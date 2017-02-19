@@ -21,7 +21,7 @@ export default [
             'Cream together the butter, white sugar, and brown sugar until smooth. Beat in the eggs one at a time, then stir in the vanilla. Dissolve baking soda in hot water. Add to batter along with salt. Stir in flour, chocolate chips, and nuts. Drop by large spoonfuls onto ungreased pans.',
             'Bake for about 10 minutes in the preheated oven, or until edges are nicely browned.'
         ],
-        id: 'chocolate-chip-cookies'
+        id: 1
     },
     {
         title: 'Medianoche',
@@ -41,6 +41,6 @@ export default [
             'Split the sandwich rolls in half, and spread mustard and mayonnaise liberally onto the cut sides. On each sandwich, place and equal amount of Swiss cheese, ham and pork in exactly that order. Place a few pickles onto each one, and put the top of the roll onto the sandwich. Brush the tops with melted butter.',
             'Press each sandwich in a sandwich press heated to medium-high heat. If a sandwich press is not available, use a large skillet over medium-high heat, and press the sandwiches down using a sturdy plate or skillet. Some indoor grills may be good for this also. Cook for 5 to 8 minutes, keeping sandwiches pressed. If using a skillet, you may want to flip them once for even browning. Slice diagonally and serve hot.'
         ],
-        id: 'medianoche'
+        id: 2
     }
 ]

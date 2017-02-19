@@ -64,3 +64,9 @@
   display: inline-block;
   vertical-align: top;
   max-width: 700px; }
+
+.image-dropbox {
+  display: inline-block;
+  padding: 100px 130px;
+  background-color: #ddd;
+  border: 1px solid #bbb; }

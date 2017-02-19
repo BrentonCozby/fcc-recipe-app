@@ -6,7 +6,9 @@ import './RecipePage.css'
 
 const RecipePage = ({
     recipe,
-    updateRecipe
+    updateRecipe,
+    uploadImage,
+    isLoggedIn
 }) => (
     <div className="RecipePage">
         <Recipe
@@ -16,8 +18,10 @@ const RecipePage = ({
             ingredients={recipe.ingredients}
             directions={recipe.directions}
             updateRecipe={updateRecipe}
-            recipe_id={recipe.id}
+            uploadImage={uploadImage}
+            recipe_id={+recipe.id}
             key={recipe.id}
+            isLoggedIn={isLoggedIn}
         />
     </div>
 )

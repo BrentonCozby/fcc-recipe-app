@@ -18,8 +18,7 @@ const Header = ({
 )
 
 Header.propTypes = {
-    title: React.PropTypes.string.isRequired,
-    createNewRecipe: React.PropTypes.func.isRequired
+    displayName: React.PropTypes.string
 }
 
 export default Header

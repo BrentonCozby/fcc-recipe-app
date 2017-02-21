@@ -8,26 +8,29 @@ const RecipePage = ({
     recipe,
     updateRecipe,
     uploadImage,
-    isLoggedIn
+    isEditable
 }) => (
     <div className="RecipePage">
         <Recipe
-            title={recipe.title}
-            summary={recipe.summary}
-            image={recipe.image}
-            ingredients={recipe.ingredients}
-            directions={recipe.directions}
+            title={recipe && recipe.title}
+            summary={recipe && recipe.summary}
+            image={recipe && recipe.image}
+            ingredients={recipe && recipe.ingredients}
+            directions={recipe && recipe.directions}
             updateRecipe={updateRecipe}
             uploadImage={uploadImage}
-            recipe_id={+recipe.id}
-            key={recipe.id}
-            isLoggedIn={isLoggedIn}
+            recipe_id={recipe && +recipe.id}
+            key={recipe && recipe.id}
+            isEditable={isEditable}
         />
     </div>
 )
 
 RecipePage.propTypes = {
-    recipe: React.PropTypes.object.isRequired
+    recipe: React.PropTypes.object,
+    updateRecipe: React.PropTypes.func.isRequired,
+    uploadImage: React.PropTypes.func.isRequired,
+    isEditable: React.PropTypes.bool.isRequired
 }
 
 export default RecipePage

@@ -1,6 +1,7 @@
 .Collage {
     column-count: 1;
     column-gap: 20px;
+    column-fill: balance;
 
     @media all and (min-width: 414px) {
         column-count: 2

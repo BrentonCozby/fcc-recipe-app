@@ -1,13 +1,17 @@
 .Recipe-title, .Recipe-subtitle, .Recipe-summary,
 .Recipe li {
   padding: 3px;
-  border-bottom: 2px solid transparent; }
+  border-bottom: 2px solid transparent;
+  transition: all .2s; }
 
 .Recipe-title:focus, .Recipe-subtitle:focus, .Recipe-summary:focus,
 .Recipe li:focus {
   outline: none;
   background-color: #fff;
-  border-bottom: 2px solid #2af; }
+  border-bottom: 2px solid #2af;
+  box-shadow: 0 1px 4px 0 #333;
+  border-radius: 3px;
+  padding: 7px; }
 
 .Recipe {
   width: 100%;
@@ -37,6 +41,7 @@
     font-size: 1.2rem; } }
 
 .Recipe-ingredients {
+  min-width: 300px;
   list-style-type: none;
   padding-left: 0;
   margin: 0; }
@@ -65,8 +70,39 @@
   vertical-align: top;
   max-width: 700px; }
 
-.image-dropbox {
+.image-upload-btn {
   display: inline-block;
-  padding: 100px 130px;
-  background-color: #ddd;
-  border: 1px solid #bbb; }
+  position: absolute;
+  padding: 5px 8px;
+  border: 1px solid #aef;
+  background-color: #fff;
+  font-size: .8rem;
+  z-index: 1; }
+
+.image-dropbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0;
+  width: 300px;
+  height: 200px;
+  background-color: rgba(200, 200, 200, 0.3);
+  border: 1px solid #bbb;
+  text-align: center;
+  font-size: 1rem;
+  color: #555; }
+
+.upload-image-text {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-style: italic; }
+
+.upload-image-text p:first-of-type {
+  font-weight: bold;
+  font-style: normal; }

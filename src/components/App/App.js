@@ -57,13 +57,12 @@ class App extends Component {
     )
 
     render() {
+        const isEditable = this.props.isLoggedIn || this.props.user_id === 'demo'
         return (
             <div className="App">
                 <Header
-                    title={"Recipe App"}
                     displayName={this.props.displayName}
-                    createNewRecipe={this.props.createNewRecipe}
-                    isLoggedIn={this.props.isLoggedIn}
+                    createNewRecipe={isEditable && this.props.createNewRecipe}
                 />
 
                 <MenuButton toggleMenu={this.toggleMenu} isMenuOpen={this.state.isMenuOpen} />
@@ -109,21 +108,13 @@ class App extends Component {
                             />
                         }}/>
                         <Route path="/:user_id/recipes/:recipe_title" render={({ match }) => {
-                            // when :recipe_title doesn't match a recipe title
-                            if(!this.props.recipes.some(r => {
-                                return urlencode(r.title.replace(/\s+/g, '-')) === match.params.recipe_title
-                            })) return <Redirect to="/demo/recipes"/>
-                            // when user is not logged in but path has a user_id
-                            if(this.props.user_id !== match.params.user_id && this.props.user_id === 'demo') return (
-                                <Redirect to={`/demo/recipes/${match.params.recipe_title}`} />
-                            )
                             // when user is logged in but path says 'demo'
-                            if(this.props.user_id !== match.params.user_id && match.params.user_id === 'demo') return (
-                                <Redirect to={`/${this.props.user_id}/recipes/${match.params.recipe_title}`} />
-                            )
+                            if(this.props.user_id !== match.params.user_id && match.params.user_id === 'demo') {
+                                return <Redirect to={`/${this.props.user_id}/recipes/${match.params.recipe_title}`} />
+                            }
                             // Else render the RecipePage from the :recipe_title
                             return <RecipePage
-                                isLoggedIn={this.props.isLoggedIn}
+                                isEditable={isEditable}
                                 updateRecipe={this.props.updateRecipe}
                                 uploadImage={this.props.uploadImage}
                                 recipe={this.props.recipes.find(r => {

@@ -5,7 +5,7 @@
     margin: 0;
     display: inline-block;
     vertical-align: middle;
-    padding: 15px; }
+    padding: 15px 40px; }
 
 .add-recipe-btn {
   vertical-align: middle;
@@ -14,4 +14,5 @@
   position: absolute;
   left: 10px;
   top: 5px;
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 1; }

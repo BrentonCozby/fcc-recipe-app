@@ -5,13 +5,17 @@ import './Recipe.css'
 class Recipe extends Component {
 
     static propTypes = {
-        title: React.PropTypes.string.isRequired,
-        summary: React.PropTypes.string.isRequired,
+        title: React.PropTypes.string,
+        summary: React.PropTypes.string,
         image: React.PropTypes.string,
         ingredients: React.PropTypes.array,
         directions: React.PropTypes.array,
-        recipe_id: React.PropTypes.number.isRequired,
-        isLoggedIn: React.PropTypes.bool.isRequired
+        recipe_id: React.PropTypes.number,
+        isEditable: React.PropTypes.bool.isRequired
+    }
+
+    componentDidMount() {
+        this.title.focus()
     }
 
     updateRecipe = (event) => {
@@ -33,50 +37,83 @@ class Recipe extends Component {
         this.props.uploadImage(event, file)
     }
 
+    renderImage = () => {
+        const imageUploadBtn = (
+            <div>
+                {!this.props.image && (
+                    <div className="upload-image-text">
+                        <div>
+                            <p>Upload Image</p>
+                            <p>Drag and Drop</p>
+                            <p>or Click here!</p>
+                        </div>
+                    </div>
+                )}
+                <label
+                    className={(this.props.image)
+                         ? "image-upload-btn"
+                         : "image-upload-btn image-dropbox"}
+                    htmlFor="image-upload"
+                    data-recipe_id={this.props.recipe_id}
+                    onDragEnter={this.onDrag}
+                    onDragLeave={this.onDrag}
+                    onDragEnd={this.onDrag}
+                    onDragOver={this.onDrag}
+                    onDrop={this.onDrop}>
+                    {this.props.image && "Edit Image"}
+                </label>
+                <input
+                    className="image-upload"
+                    id="image-upload"
+                    type="file"
+                    accept="image/*"
+                    data-recipe_id={this.props.recipe_id}
+                    style={{display: 'none'}}
+                    onChange={this.props.uploadImage}
+                />
+            </div>
+        )
+
+        if(this.props.image) {
+            return (
+                <div>
+                    {this.props.isEditable && imageUploadBtn}
+                    <img
+                        className="Recipe-image"
+                        src={this.props.image}
+                        alt={this.props.title}/>
+                </div>
+            )
+        }
+
+        if(this.props.isEditable) {
+            return (
+                <div>
+                    {imageUploadBtn}
+                </div>
+            )
+        }
+
+        return false
+    }
+
     render() {
         return (
             <div className="Recipe">
                 <div className="title-image-summary">
                     <h2
                         className="Recipe-title Recipe-input"
-                        contentEditable={this.props.isLoggedIn}
+                        contentEditable={this.props.isEditable}
                         data-recipe_id={this.props.recipe_id}
                         data-name="title"
-                        onBlur={this.updateRecipe}>
+                        onBlur={this.updateRecipe}
+                        ref={(el) => this.title = el}>
                         {this.props.title}
                     </h2>
-                    {(this.props.image)
-                        ? <img
-                            className="Recipe-image"
-                            src={this.props.image}
-                            alt={this.props.title}/>
-                        : <div>
-                            <label
-                                className="image-dropbox"
-                                htmlFor="image-upload"
-                                data-recipe_id={this.props.recipe_id}
-                                onDragEnter={this.onDrag}
-                                onDragLeave={this.onDrag}
-                                onDragEnd={this.onDrag}
-                                onDragOver={this.onDrag}
-                                onDrop={this.onDrop}>
-                                Upload Image
-                            </label>
-                            <input
-                                className="image-upload"
-                                id="image-upload"
-                                type="file"
-                                accept="image/*"
-                                data-recipe_id={this.props.recipe_id}
-                                data-name="title"
-                                style={{display: 'none'}}
-                                onChange={this.props.uploadImage}
-                            />
-                        </div>
-                    }
+                    {this.renderImage()}
                     <p
                         className="Recipe-summary Recipe-input"
-                        contentEditable={this.props.isLoggedIn}
+                        contentEditable={this.props.isEditable}
                         data-recipe_id={this.props.recipe_id}
                         data-name="summary"
                         onBlur={this.updateRecipe}>
@@ -89,7 +126,7 @@ class Recipe extends Component {
                         {this.props.ingredients && this.props.ingredients.map((item, i) => (
                             <li
                                 key={i}
-                                contentEditable={this.props.isLoggedIn}
+                                contentEditable={this.props.isEditable}
                                 data-recipe_id={this.props.recipe_id}
                                 data-index={i}
                                 data-name="ingredients"
@@ -105,7 +142,7 @@ class Recipe extends Component {
                         {this.props.directions && this.props.directions.map((step, i) => (
                             <li
                                 key={i}
-                                contentEditable={this.props.isLoggedIn}
+                                contentEditable={this.props.isEditable}
                                 data-recipe_id={this.props.recipe_id}
                                 data-index={i}
                                 data-name="directions"

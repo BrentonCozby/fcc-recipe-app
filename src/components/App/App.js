@@ -24,6 +24,7 @@ class App extends Component {
 
     state = {
         isMenuOpen: false,
+        isLoginTooltipShown: false,
         isCreatingNewRecipe: false,
         isEditingRecipe: false,
         recipeBeingEdited: null
@@ -63,6 +64,7 @@ class App extends Component {
                 <Header
                     displayName={this.props.displayName}
                     createNewRecipe={isEditable && this.props.createNewRecipe}
+                    isEditable={isEditable}
                 />
 
                 <MenuButton toggleMenu={this.toggleMenu} isMenuOpen={this.state.isMenuOpen} />
@@ -79,7 +81,7 @@ class App extends Component {
                     transitionName="fade"
                     transitionEnterTimeout={200}
                     transitionLeaveTimeout={200}>
-                    {(this.state.isMenuOpen) &&
+                    {this.state.isMenuOpen &&
                         <Overlay key="overlay" hideOverlayThings={this.hideOverlayThings} />
                     }
                 </ReactCSSTransitionGroup>
@@ -115,6 +117,7 @@ class App extends Component {
                             // Else render the RecipePage from the :recipe_title
                             return <RecipePage
                                 isEditable={isEditable}
+                                deleteRecipe={this.props.deleteRecipe}
                                 updateRecipe={this.props.updateRecipe}
                                 uploadImage={this.props.uploadImage}
                                 recipe={this.props.recipes.find(r => {

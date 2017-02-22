@@ -6,6 +6,7 @@ import './RecipePage.css'
 
 const RecipePage = ({
     recipe,
+    deleteRecipe,
     updateRecipe,
     uploadImage,
     isEditable
@@ -17,6 +18,7 @@ const RecipePage = ({
             image={recipe && recipe.image}
             ingredients={recipe && recipe.ingredients}
             directions={recipe && recipe.directions}
+            deleteRecipe={deleteRecipe}
             updateRecipe={updateRecipe}
             uploadImage={uploadImage}
             recipe_id={recipe && +recipe.id}

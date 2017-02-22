@@ -51,8 +51,8 @@ class Recipe extends Component {
                 )}
                 <label
                     className={(this.props.image)
-                         ? "image-upload-btn"
-                         : "image-upload-btn image-dropbox"}
+                         ? "edit-image-btn"
+                         : "image-dropbox"}
                     htmlFor="image-upload"
                     data-recipe_id={this.props.recipe_id}
                     onDragEnter={this.onDrag}
@@ -101,6 +101,12 @@ class Recipe extends Component {
         return (
             <div className="Recipe">
                 <div className="title-image-summary">
+                    <button
+                        className="delete-recipe-btn"
+                        data-recipe_id={this.props.recipe_id}
+                        onClick={this.props.deleteRecipe}>
+                        Delete Recipe
+                    </button>
                     <h2
                         className="Recipe-title Recipe-input"
                         contentEditable={this.props.isEditable}

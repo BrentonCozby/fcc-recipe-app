@@ -89,6 +89,40 @@ class AppContainer extends Component {
         this.props.push('recipes/Recipe-Title')
     }
 
+    deleteRecipe = (event) => {
+        event.preventDefault()
+
+        var input = event.target
+        var recipes = [...this.state.recipes]
+        var indexOfThisRecipe;
+        for(let i = 0; i < recipes.length; i++) {
+            if(+recipes[i].id === +input.dataset.recipe_id) {
+                indexOfThisRecipe = i
+                break;
+            }
+        }
+
+        const _this = this
+
+        if(this.state.isLoggedIn) {
+            const imageRef = base.storage().ref().child(`${this.state.user_id}/images/${input.dataset.recipe_id}`)
+            imageRef.delete().then(function() {
+                recipes.splice(indexOfThisRecipe, 1)
+                _this.setState({ recipes })
+                _this.props.goBack()
+            }).catch(function() {
+                recipes.splice(indexOfThisRecipe, 1)
+                _this.setState({ recipes })
+                _this.props.goBack()
+            })
+        }
+        else {
+            recipes.splice(indexOfThisRecipe, 1)
+            this.setState({ recipes })
+            this.props.goBack()
+        }
+    }
+
     updateRecipe = (event) => {
         const element = event.target
         var recipes = [...this.state.recipes]
@@ -139,6 +173,7 @@ class AppContainer extends Component {
                 login={this.login}
                 logout={this.logout}
                 createNewRecipe={this.createNewRecipe}
+                deleteRecipe={this.deleteRecipe}
                 updateRecipe={this.updateRecipe}
                 uploadImage={this.uploadImage}
             />

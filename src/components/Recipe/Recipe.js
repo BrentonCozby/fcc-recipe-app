@@ -100,13 +100,13 @@ class Recipe extends Component {
     render() {
         return (
             <div className="Recipe">
+                <button
+                    className="delete-recipe-btn"
+                    data-recipe_id={this.props.recipe_id}
+                    onClick={this.props.deleteRecipe}>
+                    Delete Recipe
+                </button>
                 <div className="title-image-summary">
-                    <button
-                        className="delete-recipe-btn"
-                        data-recipe_id={this.props.recipe_id}
-                        onClick={this.props.deleteRecipe}>
-                        Delete Recipe
-                    </button>
                     <h2
                         className="Recipe-title Recipe-input"
                         contentEditable={this.props.isEditable}

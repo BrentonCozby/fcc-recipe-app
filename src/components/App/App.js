@@ -120,6 +120,10 @@ class App extends Component {
                                 deleteRecipe={this.props.deleteRecipe}
                                 updateRecipe={this.props.updateRecipe}
                                 uploadImage={this.props.uploadImage}
+                                addIngredient={this.props.addIngredient}
+                                addDirection={this.props.addDirection}
+                                deleteIngredient={this.props.deleteIngredient}
+                                deleteDirection={this.props.deleteDirection}
                                 recipe={this.props.recipes.find(r => {
                                     return urlencode(r.title.replace(/\s+/g, '-')) === match.params.recipe_title
                                 })}

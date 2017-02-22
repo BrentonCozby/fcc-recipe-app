@@ -4,15 +4,12 @@
   position: absolute;
   width: 100%;
   bottom: 0; }
-
-.Footer-copyright {
-  margin: 0;
-  display: inline-block;
-  padding: 15px;
-  color: #eee; }
-
-.Footer-copyright a {
-  color: #FFFF9D; }
-
-.Footer-copyright a:visited {
-  color: #FFFF9D; }
+  .Footer-copyright {
+    margin: 0;
+    display: inline-block;
+    padding: 15px;
+    color: #eee; }
+    .Footer-copyright a {
+      color: #FFFF9D; }
+      .Footer-copyright a:visited {
+        color: #FFFF9D; }

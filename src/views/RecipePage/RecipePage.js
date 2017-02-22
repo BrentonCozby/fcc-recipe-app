@@ -9,6 +9,10 @@ const RecipePage = ({
     deleteRecipe,
     updateRecipe,
     uploadImage,
+    addIngredient,
+    addDirection,
+    deleteIngredient,
+    deleteDirection,
     isEditable
 }) => (
     <div className="RecipePage">
@@ -21,6 +25,10 @@ const RecipePage = ({
             deleteRecipe={deleteRecipe}
             updateRecipe={updateRecipe}
             uploadImage={uploadImage}
+            addIngredient={addIngredient}
+            addDirection={addDirection}
+            deleteIngredient={deleteIngredient}
+            deleteDirection={deleteDirection}
             recipe_id={recipe && +recipe.id}
             key={recipe && recipe.id}
             isEditable={isEditable}

@@ -130,32 +130,63 @@ class Recipe extends Component {
                     <h4 className="Recipe-subtitle">Ingredients</h4>
                     <ul className="Recipe-ingredients">
                         {this.props.ingredients && this.props.ingredients.map((item, i) => (
-                            <li
-                                key={i}
-                                contentEditable={this.props.isEditable}
-                                data-recipe_id={this.props.recipe_id}
-                                data-index={i}
-                                data-name="ingredients"
-                                onBlur={this.updateRecipe}>
-                                {item}
+                            <li key={i}>
+                                <p
+                                    className="Recipe-ingredient"
+                                    contentEditable={this.props.isEditable}
+                                    data-recipe_id={this.props.recipe_id}
+                                    data-index={i}
+                                    data-name="ingredients"
+                                    onBlur={this.updateRecipe}>
+                                    {item}
+                                </p>
+                                <span
+                                    className="delete-li-btn"
+                                    data-recipe_id={this.props.recipe_id}
+                                    data-index={i}
+                                    onClick={this.props.deleteIngredient}>
+                                    ×
+                                </span>
                             </li>
                         ))}
+                        <li
+                            className="add-li-btn"
+                            data-recipe_id={this.props.recipe_id}
+                            onClick={this.props.addIngredient}>
+                            Add Ingredient
+                        </li>
                     </ul>
                 </div>
                 <div className="directions-container">
                     <h4 className="Recipe-subtitle">Directions</h4>
                     <ol className="Recipe-directions">
                         {this.props.directions && this.props.directions.map((step, i) => (
-                            <li
-                                key={i}
-                                contentEditable={this.props.isEditable}
-                                data-recipe_id={this.props.recipe_id}
-                                data-index={i}
-                                data-name="directions"
-                                onBlur={this.updateRecipe}>
-                                {step}
+                            <li key={i}>
+                                <span
+                                    contentEditable={false}
+                                    className="delete-li-btn"
+                                    data-recipe_id={this.props.recipe_id}
+                                    data-index={i}
+                                    onClick={this.props.deleteDirection}>
+                                    ×
+                                </span>
+                                <p
+                                    className="Recipe-direction"
+                                    contentEditable={this.props.isEditable}
+                                    data-recipe_id={this.props.recipe_id}
+                                    data-index={i}
+                                    data-name="directions"
+                                    onBlur={this.updateRecipe}>
+                                    {step}
+                                </p>
                             </li>
                         ))}
+                        <li
+                            className="add-li-btn"
+                            data-recipe_id={this.props.recipe_id}
+                            onClick={this.props.addDirection}>
+                            Add Direction
+                        </li>
                     </ol>
                 </div>
             </div>

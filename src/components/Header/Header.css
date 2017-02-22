@@ -1,12 +1,11 @@
 .Header {
   text-align: center; }
-
-.Header-title {
-  margin: 0;
-  display: inline-block;
-  vertical-align: middle;
-  padding: 15px 40px;
-  color: #00A388; }
+  .Header-title {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px 40px;
+    color: #00A388; }
 
 .add-recipe-btn {
   vertical-align: middle;

@@ -164,6 +164,44 @@ class AppContainer extends Component {
         })
     }
 
+    addIngredient = (event) => {
+        const input = event.target
+        var recipes = [...this.state.recipes]
+        var thisRecipe = recipes.find(r => +r.id === +input.dataset.recipe_id)
+
+        thisRecipe.ingredients.push('New')
+
+        this.setState({ recipes })
+    }
+
+    addDirection = (event) => {
+        const input = event.target
+        var recipes = [...this.state.recipes]
+        var thisRecipe = recipes.find(r => +r.id === +input.dataset.recipe_id)
+
+        thisRecipe.directions.push('New')
+
+        this.setState({ recipes })
+    }
+
+    deleteIngredient = (event) => {
+        const input = event.target
+        var recipes = [...this.state.recipes]
+        var thisRecipe = recipes.find(r => +r.id === +input.dataset.recipe_id)
+
+        thisRecipe.ingredients.splice(input.dataset.index, 1)
+        this.setState({ recipes })
+    }
+
+    deleteDirection = (event) => {
+        const input = event.target
+        var recipes = [...this.state.recipes]
+        var thisRecipe = recipes.find(r => +r.id === +input.dataset.recipe_id)
+
+        thisRecipe.directions.splice(input.dataset.index, 1)
+        this.setState({ recipes })
+    }
+
     render() {
         return (
             <App
@@ -174,6 +212,10 @@ class AppContainer extends Component {
                 deleteRecipe={this.deleteRecipe}
                 updateRecipe={this.updateRecipe}
                 uploadImage={this.uploadImage}
+                addIngredient={this.addIngredient}
+                addDirection={this.addDirection}
+                deleteIngredient={this.deleteIngredient}
+                deleteDirection={this.deleteDirection}
             />
         )
     }

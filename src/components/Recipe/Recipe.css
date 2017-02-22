@@ -141,3 +141,6 @@
   color: #c33;
   font-weight: bold;
   cursor: pointer; }
+
+.Recipe-ingredient + .delete-li-btn {
+  margin-left: 10px; }

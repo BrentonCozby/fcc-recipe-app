@@ -1,4 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Source+Sans+Pro");
 @import url(./normalize.css);
 * {
   position: relative;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #444; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Comfortaa', sans-serif;
+  color: #FF6138; }
+
+a {
+  color: #00A388;
+  text-decoration: none; }
+
+a:visited {
+  color: #79BD8F; }

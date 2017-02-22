@@ -1,5 +1,5 @@
 .Footer {
-  background-color: #ff6947;
+  background-color: #79BD8F;
   text-align: center;
   position: absolute;
   width: 100%;
@@ -9,8 +9,10 @@
   margin: 0;
   display: inline-block;
   padding: 15px;
-  color: #222; }
+  color: #eee; }
 
 .Footer-copyright a {
-  color: #06b;
-  text-decoration: none; }
+  color: #FFFF9D; }
+
+.Footer-copyright a:visited {
+  color: #FFFF9D; }

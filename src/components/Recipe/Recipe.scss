@@ -14,7 +14,7 @@
     & li:focus {
         outline: none;
         background-color: #fff;
-        border-bottom: 2px solid #2af;
+        border-bottom: 2px solid #79BD8F;
         box-shadow: 0 1px 4px 0 #333;
         border-radius: 3px;
         padding: 7px;
@@ -94,7 +94,6 @@
     position: absolute;
     padding: 5px 8px;
     margin: 4px;
-    border: 1px solid #aef;
     border-radius: 3px;
     background-color: rgba(255, 255, 255, .8);
     font-size: .8rem;
@@ -129,4 +128,10 @@
         font-weight: bold;
         font-style: normal;
     }
+}
+
+.delete-recipe-btn {
+    border: none;
+    padding: 8px;
+    color: #f55;
 }

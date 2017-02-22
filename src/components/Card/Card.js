@@ -17,7 +17,6 @@ const Card = ({
         className="Card">
             <h3 className="Card-title">{title}</h3>
             {image && <img src={image} alt={title} className="Card-image"/>}
-            <p className="Card-summary">{summary}</p>
     </Link>
 )
 

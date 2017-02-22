@@ -1,14 +1,16 @@
 .Footer {
-  background-color: #444;
+  background-color: #ff9077;
   text-align: center;
   position: absolute;
   width: 100%;
   bottom: 0; }
-  .Footer-copyright {
-    margin: 0;
-    display: inline-block;
-    padding: 15px;
-    color: #eee; }
-    .Footer-copyright a {
-      color: #5ef;
-      text-decoration: none; }
+
+.Footer-copyright {
+  margin: 0;
+  display: inline-block;
+  padding: 15px;
+  color: #222; }
+
+.Footer-copyright a {
+  color: #06b;
+  text-decoration: none; }

@@ -146,8 +146,6 @@ class AppContainer extends Component {
         var thisRecipe = recipes.find(r => +r.id === +input.dataset.recipe_id)
         const file = (droppedFile) ? droppedFile : event.target.files[0]
 
-        console.log(input);
-
         // Create a reference to 'user_id/images/sugar-cookies.jpg'
         const imageRef = base.storage().ref().child(`${this.state.user_id}/images/${input.dataset.recipe_id}`)
 

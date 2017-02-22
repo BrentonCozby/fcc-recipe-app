@@ -4,10 +4,13 @@ import './Header.css'
 
 const Header = ({
     displayName,
-    createNewRecipe
+    createNewRecipe,
+    isEditable
 }) => (
     <div className="Header">
-        <span className="add-recipe-btn" onClick={createNewRecipe}>+</span>
+        {isEditable && (
+            <span className="add-recipe-btn" onClick={createNewRecipe}>+</span>
+        )}
         <h1 className="Header-title">
             {(displayName)
                 ? `${displayName}'s Recipes`

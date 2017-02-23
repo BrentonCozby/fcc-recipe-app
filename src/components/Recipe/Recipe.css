@@ -83,43 +83,6 @@
   vertical-align: top;
   max-width: 700px; }
 
-.edit-image-btn {
-  display: inline-block;
-  position: absolute;
-  padding: 5px 8px;
-  margin: 4px;
-  border-radius: 3px;
-  background-color: rgba(255, 255, 255, 0.8);
-  font-size: .8rem;
-  z-index: 1; }
-
-.image-dropbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 200px;
-  background-color: rgba(200, 200, 200, 0.3);
-  border: 1px solid #bbb;
-  text-align: center;
-  font-size: 1rem;
-  color: #555;
-  z-index: 1; }
-
-.upload-image-text {
-  position: absolute;
-  width: 300px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-style: italic; }
-
-.upload-image-text p:first-of-type {
-  font-weight: bold;
-  font-style: normal; }
-
 .delete-recipe-btn {
   border: none;
   border-radius: 4px;

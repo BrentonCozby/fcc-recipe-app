@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+import ImageUploadBtn from './ImageUploadBtn/ImageUploadBtn.js'
+
 import './Recipe.css'
 
 class Recipe extends Component {
@@ -22,62 +24,17 @@ class Recipe extends Component {
         this.props.updateRecipe(event)
     }
 
-    onDrag = (e) => {
-        e.stopPropagation()
-        e.preventDefault()
-    }
-
-    onDrop = (event) => {
-        event.stopPropagation()
-        event.preventDefault()
-
-        var dt = event.dataTransfer;
-        var file = dt.files[0];
-
-        this.props.uploadImage(event, file)
-    }
-
     renderImage = () => {
-        const imageUploadBtn = (
-            <div>
-                {!this.props.image && (
-                    <div className="upload-image-text">
-                        <div>
-                            <p>Upload Image</p>
-                            <p>Drag and Drop</p>
-                            <p>or Click here!</p>
-                        </div>
-                    </div>
-                )}
-                <label
-                    className={(this.props.image)
-                         ? "edit-image-btn"
-                         : "image-dropbox"}
-                    htmlFor="image-upload"
-                    data-recipe_id={this.props.recipe_id}
-                    onDragEnter={this.onDrag}
-                    onDragLeave={this.onDrag}
-                    onDragEnd={this.onDrag}
-                    onDragOver={this.onDrag}
-                    onDrop={this.onDrop}>
-                    {this.props.image && "Edit Image"}
-                </label>
-                <input
-                    className="image-upload"
-                    id="image-upload"
-                    type="file"
-                    accept="image/*"
-                    data-recipe_id={this.props.recipe_id}
-                    style={{display: 'none'}}
-                    onChange={this.props.uploadImage}
-                />
-            </div>
-        )
-
         if(this.props.image) {
             return (
                 <div>
-                    {this.props.isEditable && imageUploadBtn}
+                    {this.props.isEditable && (
+                        <ImageUploadBtn
+                            imageExists={this.props.image}
+                            recipe_id={this.props.recipe_id}
+                            uploadImage={this.props.uploadImage}
+                        />
+                    )}
                     <img
                         className="Recipe-image"
                         src={this.props.image}
@@ -89,7 +46,11 @@ class Recipe extends Component {
         if(this.props.isEditable) {
             return (
                 <div>
-                    {imageUploadBtn}
+                    <ImageUploadBtn
+                        imageExists={this.props.image}
+                        recipe_id={this.props.recipe_id}
+                        uploadImage={this.props.uploadImage}
+                    />
                 </div>
             )
         }

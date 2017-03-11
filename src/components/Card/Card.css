@@ -7,12 +7,16 @@
   margin: 0 0 15px 0;
   break-inside: avoid;
   background-color: #FF6138;
-  cursor: pointer; }
+  cursor: pointer;
+  text-align: left; }
+  .Card-image {
+    width: 100%;
+    display: block; }
   .Card-title {
     margin: 0;
     padding: 8px;
     font-size: 1.4rem;
     color: #fff; }
-  .Card-image {
-    width: 100%;
-    display: block; }
+  .Card-summary {
+    padding: 7px;
+    font-size: 1rem; }

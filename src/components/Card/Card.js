@@ -15,8 +15,9 @@ const Card = ({
         to={`/${user_id}/recipes/${urlencode(title.replace(/\s+/g, '-'))}`}
         key={recipe_id}
         className="Card">
-            <h3 className="Card-title">{title}</h3>
             {image && <img src={image} alt={title} className="Card-image"/>}
+            <h3 className="Card-title">{title}</h3>
+            <p className="Card-summary">{summary}</p>
     </Link>
 )
 

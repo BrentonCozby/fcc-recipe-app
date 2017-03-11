@@ -8,6 +8,12 @@
     break-inside: avoid;
     background-color: #FF6138;
     cursor: pointer;
+    text-align: left;
+
+    &-image {
+        width: 100%;
+        display: block;
+    }
 
     &-title {
         margin: 0;
@@ -16,8 +22,8 @@
         color: #fff;
     }
 
-    &-image {
-        width: 100%;
-        display: block;
+    &-summary {
+        padding: 7px;
+        font-size: 1rem;
     }
 }

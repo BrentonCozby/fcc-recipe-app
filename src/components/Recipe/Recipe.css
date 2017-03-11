@@ -16,67 +16,54 @@
 .Recipe {
   width: 100%;
   text-align: left; }
-
-.Recipe-title {
-  font-size: 1.8rem; }
-
-.Recipe-image {
-  max-width: 100%; }
-
-.Recipe-summary {
-  max-width: 700px;
-  margin-bottom: 50px; }
-
-.Recipe-subtitle {
-  font-size: 1.4rem;
-  margin-top: 0;
-  margin-bottom: 20px; }
-
-@media all and (min-width: 768px) {
-  .Recipe li,
-  .Recipe p {
-    font-size: 1.2rem; } }
-
-.Recipe-ingredients {
-  min-width: 300px;
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0; }
-
-.Recipe-ingredients li:last-of-type {
-  margin-top: 20px; }
-
-.Recipe-directions {
-  padding-left: 20px;
-  margin: 0; }
-
-.Recipe-directions p {
-  margin: -3px 0 20px 0;
-  vertical-align: top; }
-
-.Recipe-ingredient, .Recipe-direction {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1.4;
-  margin: 0; }
-
-.Recipe-ingredient {
-  margin: 3px 0; }
-
-.Recipe-direction {
-  margin: 10px 0; }
+  .Recipe-title {
+    font-size: 1.8rem; }
+  .Recipe-image {
+    max-width: 100%; }
+  .Recipe-summary {
+    max-width: 700px;
+    margin-bottom: 50px; }
+  .Recipe-subtitle {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 20px; }
+  @media all and (min-width: 768px) {
+    .Recipe li,
+    .Recipe p {
+      font-size: 1.2rem; } }
+  .Recipe-ingredients {
+    min-width: 300px;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0; }
+    .Recipe-ingredients li:last-of-type {
+      margin-top: 20px; }
+  .Recipe-directions {
+    padding-left: 20px;
+    margin: 0; }
+    .Recipe-directions p {
+      margin: -3px 0 20px 0;
+      vertical-align: top; }
+  .Recipe-ingredient, .Recipe-direction {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.4;
+    margin: 0; }
+  .Recipe-ingredient {
+    margin: 3px 0; }
+  .Recipe-direction {
+    margin: 10px 0; }
 
 .ingredients-container {
   display: inline-block;
   vertical-align: top;
   max-width: 400px;
   margin-bottom: 50px; }
-
-@media all and (min-width: 768px) {
-  .ingredients-container {
-    padding-right: 30px;
-    margin-right: 30px;
-    border-right: 1px solid #ccc; } }
+  @media all and (min-width: 768px) {
+    .ingredients-container {
+      padding-right: 30px;
+      margin-right: 30px;
+      border-right: 1px solid #ccc; } }
 
 .directions-container {
   display: inline-block;

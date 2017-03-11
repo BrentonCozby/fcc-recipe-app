@@ -30,7 +30,6 @@
   align-items: center;
   text-align: center;
   font-style: italic; }
-
-.upload-image-text p:first-of-type {
-  font-weight: bold;
-  font-style: normal; }
+  .upload-image-text p:first-of-type {
+    font-weight: bold;
+    font-style: normal; }

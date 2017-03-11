@@ -1,12 +1,11 @@
 .Card {
   display: inline-block;
   width: 100%;
-  border-radius: 7px;
+  border-radius: 4px;
   border: 2px solid #FF6138;
   overflow: hidden;
   margin: 0 0 15px 0;
   break-inside: avoid;
-  background-color: #FF6138;
   cursor: pointer;
   text-align: left; }
   .Card-image {
@@ -14,9 +13,11 @@
     display: block; }
   .Card-title {
     margin: 0;
-    padding: 8px;
+    padding: 7px;
+    padding-bottom: 0;
     font-size: 1.4rem;
-    color: #fff; }
+    color: #FF6138; }
   .Card-summary {
     padding: 7px;
-    font-size: 1rem; }
+    font-size: 1rem;
+    margin: 0; }

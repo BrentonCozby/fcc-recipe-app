@@ -22,5 +22,5 @@
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject"
     },
-    "homepage": "https://brentoncozby.com/projects/FreeCodeCamp/fcc-recipe-app/"
+    "homepage": "https://brentoncozby.com/free-code-camp/fcc-recipe-app/"
 }

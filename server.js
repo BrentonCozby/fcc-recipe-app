@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const app = express()
+require('dotenv').config()
 
 // Static files
 app.use(express.static('./build'))
@@ -11,7 +12,7 @@ app.get('/*', (req, res) => {
 })
 
 // Start the server
-const PORT = 4008
+const PORT = process.env.PORT || 3000
 app.listen(PORT, function() {
     console.log(`Listening on ${PORT}...`)
 })
